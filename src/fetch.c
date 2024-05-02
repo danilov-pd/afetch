@@ -292,8 +292,8 @@ void *os()
 			info.getPkgCount =
 				"[[ $(which sqlite3 2>/dev/null) && $? -ne "
 				"1 ]] && (sqlite3 "
-				"/var/lib/rpm/rpmdb.sqlite \"select * from "
-				"Name\"|wc -l) || rpm -qa | wc -l";
+				"/var/lib/rpm/rpmdb.sqlite \"select COUNT(*) from "
+				"Name\") || rpm -qa | wc -l";
 		} else if (strncmp(osname, "Gentoo", 6) == 0) {
 			info.col1 = BMAGENTA "   _-----_ \n";
 			info.col2 = BMAGENTA "  (       \\  ";
